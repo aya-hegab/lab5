@@ -1,0 +1,45 @@
+{%extends 'menu/index.html'%} {%load static%}
+<!-- <div></div> -->
+{%block mycontent%}
+<form method="post" enctype="multipart/form-data">
+  {%csrf_token%}
+  <table>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>image</th>
+    </tr>
+    <tr>
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>
+        <img
+          src="{{product.getImageUrl}}"
+          alt="{{product.img}}"
+          style="width: 100px"
+        />
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="3">
+        <input
+          type="submit"
+          value="are u sure"
+          style="width: 30%; padding: 0.5rem; margin-left: 31%"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <input
+          type="submit"
+          value="cancel"
+          style="width: 30%; padding: 0.5rem; margin-left: 31%"
+        />
+      </td>
+    </tr>
+  </table>
+  <div style="color: red"><h1>{{msg}}</h1></div>
+</form>
+{%endblock%}
